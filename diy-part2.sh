@@ -18,6 +18,11 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 for cfg in target/linux/msm89xx/config-*; do
   grep -q 'CONFIG_IP_ADVANCED_ROUTER' "$cfg" || echo 'CONFIG_IP_ADVANCED_ROUTER=y' >> "$cfg"
   grep -q 'CONFIG_IP_MULTIPLE_TABLES' "$cfg" || echo 'CONFIG_IP_MULTIPLE_TABLES=y' >> "$cfg"
+  grep -q 'CONFIG_IP_ROUTE_CLASSID' "$cfg" || echo 'CONFIG_IP_ROUTE_CLASSID=y' >> "$cfg"
+  grep -q 'CONFIG_NET_IPIP' "$cfg" || echo 'CONFIG_NET_IPIP=y' >> "$cfg"
+  grep -q 'CONFIG_NET' "$cfg" || echo 'CONFIG_NET=y' >> "$cfg"
+  grep -q 'CONFIG_INET' "$cfg" || echo 'CONFIG_INET=y' >> "$cfg"
+  grep -q 'CONFIG_NET_ROUTE' "$cfg" || echo 'CONFIG_NET_ROUTE=y' >> "$cfg"
 done
 
 
